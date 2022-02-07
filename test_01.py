@@ -17,18 +17,26 @@ if start_num > end_num :
 
 for num in range(start_num, end_num+1) :
     print(num)
-while True :
-    count += 1
+    # 각 num에 대한 Haiestone 단계 구하기
     
-    for num in range(input_num_1, input_num_2) :
-        if num % 2 == 1:
-            num = num * 3 + 1
-            if num == 1 :
-                break    
-        else :
-            num = num // 2
+    count = 0
+    
+    while True :
         
-            if num == 1 :
-                break    
-    print(num)
+        if num == 1:
+            break
+        
+        count += 1
+        
+        for num in range(num) :
+            if num % 2 == 1:
+                num = num * 3 + 1
+                if num == 1 :
+                    break    
+            else :
+                num = num // 2
+            
+                if num == 1 :
+                    break    
+        print(num)
     
