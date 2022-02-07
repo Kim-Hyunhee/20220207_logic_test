@@ -15,14 +15,14 @@ cpu_coin = 10
 
 while True:
     
-    # 컴퓨터가 1~6개 사이의 구슬을 세팅함
-    cpu_count = random.randint(1, 6)
+    # 컴퓨터가 0~2개 사이의 구슬을 세팅함
+    cpu_count = random.randint(0, 2)
         
-    # 홀 / 짝인지 답을 입력
+    # 셋 중에 하나인지 답을 입력
     
-    user_answer = input('홀 / 짝을 맞춰주세요.')
+    user_answer = input('0, 1, 2 중 하나만 선택')
     
-    if user_answer not in ['홀', '짝']:
+    if user_answer not in ['0', '1', '2']:
         print('잘못된 입력입니다.')
         continue  # 반복문의 이번 바퀴만 skip
     
@@ -48,26 +48,57 @@ while True:
     # CPU가 몇 개를 집었는지 공개
     print(f"CPU는 {cpu_count}개의 구슬을 집었습니다.")
     
-    if user_answer == '홀':
-        if cpu_count % 2 == 1 :
+    if user_answer == '0':
+        if cpu_count == '0' :
             
             print('사용자 승리입니다.')
             
             # 사용자 승리 => 코인을 배팅한 만큼 CPU로부터 받아오자
             user_coin += user_bet_coin
             cpu_coin -= user_bet_coin
+            
+        elif cpu_count == '1' :
+            print('사용자 패배입니다.')
+            user_coin -= user_bet_coin
+            cpu_coin += user_bet_coin
+            
         else:
             print('사용자 패배입니다.')
             user_coin -= user_bet_coin
             cpu_coin += user_bet_coin
-    else:
+    elif user_answer == '1':
         # 짝을 입력한 경우
-        if cpu_count % 2 == 0 :
+        if cpu_count == '1' :
             
             print('사용자 승리입니다.')
             # 맞춘 경우
             user_coin += user_bet_coin
             cpu_coin -= user_bet_coin
+            
+        elif cpu_count == '0' :
+            print('사용자 패배입니다.')
+            user_coin -= user_bet_coin
+            cpu_coin += user_bet_coin
+            
+        else:
+            print('사용자 패배입니다.')
+            user_coin -= user_bet_coin
+            cpu_coin += user_bet_coin
+            
+    elif user_answer == '2':
+        # 짝을 입력한 경우
+        if cpu_count == '2' :
+            
+            print('사용자 승리입니다.')
+            # 맞춘 경우
+            user_coin += user_bet_coin
+            cpu_coin -= user_bet_coin
+            
+        elif cpu_count == '0' :
+            print('사용자 패배입니다.')
+            user_coin -= user_bet_coin
+            cpu_coin += user_bet_coin
+            
         else:
             print('사용자 패배입니다.')
             user_coin -= user_bet_coin
