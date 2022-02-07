@@ -37,3 +37,9 @@ print(f'현재 환율 : {dollar_won}')
 
 binance_btc_price_won = binance_btc_price_dollar * dollar_won
 print(f'해외 Binance의 BTC 가격 : {binance_btc_price_won}원')
+
+
+# 프리미엄이 몇 % 붙어있는가?
+premium = (upbit_btc_price - binance_btc_price_won) / binance_btc_price_won * 100
+
+print(f'국내 BTC가 해외 BTC보다 {premium}% 더 비쌉니다.')
