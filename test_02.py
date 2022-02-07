@@ -46,3 +46,14 @@ while True:
             print('사용자 패배입니다.')
             user_coin -= 1
             cpu_coin += 1
+            
+    # 둘 중 하나의 코인이 다 떨어졌다면? => 경기 종료
+    
+    if user_coin == 0:
+        print('사용자의 코인이 바닥 났습니다.')
+        print('GAME OVER')
+        break
+    elif cpu_coin == 0:
+        print('CPU의 코인이 바닥 났습니다.')
+        print('YOU WIN')
+        break
